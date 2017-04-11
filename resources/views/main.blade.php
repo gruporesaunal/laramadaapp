@@ -7,11 +7,11 @@
 @endsection
 
 @section('header')
-Dashboard <small>Statistics Overview</small>
+Mapa de la Ramada <small>Información de contaminantes</small>
 @endsection
 
 @section('breadcrumb')
-<i class="fa fa-dashboard"></i> Dashboard
+<i class="fa fa-map-marker"></i> Mapa
 @endsection
 
 @section('content')
