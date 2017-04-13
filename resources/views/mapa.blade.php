@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Page Title')
+@section('title', 'Mapa')
 
 @section('head')
 
@@ -16,8 +16,10 @@ Mapa de la Ramada <small>Información de contaminantes</small>
 
 @section('content')
     <div class="row">
-    	<div class="jumbotron">
-    		<h1>Contenido</h1>
-    	</div>
+	    <div class="col-md-12">	    	
+	    	<div class="jumbotron">
+	    		<h1>Contenido</h1>
+	    	</div>
+	    </div>
     </div>
 @endsection
