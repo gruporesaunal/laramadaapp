@@ -18,6 +18,10 @@
     <!-- jQuery -->
     <script src="{{asset('js/jquery.js')}}"></script>
 
+    <script src="{{asset('js/login.js')}}"></script>
+
+    <script src="{{asset('js/main.js')}}"></script>
+
     <!-- Bootstrap Core JavaScript -->
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
 
@@ -41,7 +45,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{url('/')}}">Aplicación informativa La Ramada</a>
+                <a class="navbar-brand" href="#">Aplicación informativa La Ramada</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -71,23 +75,35 @@
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
+                
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active">
+                    <li  class="side-nav-item" id="side-nav-home">
+                        <a href="{{url('/home')}}"><i class="fa fa-fw fa-home"></i> Home</a>
+                    </li>
+
+                    <li class="side-nav-item"  id="side-nav-mapa">
                         <a href="{{url('/mapa')}}"><i class="fa fa-fw fa-map-marker"></i> Mapa</a>
                     </li>
+
+                    @if(Auth::check())
+                    <li class="side-nav-item" id="side-nav-datos">
+                        <a href="{{url('/datos')}}"><i class="fa fa-fw fa-database"></i> Administrar Información</a>
+                    </li>
+                    @endif
                    
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
-                            <li>
+                            <li class="side-nav-item" >
                                 <a href="#">Dropdown Item</a>
                             </li>
-                            <li>
+                            <li class="side-nav-item" >
                                 <a href="#">Dropdown Item</a>
                             </li>
                         </ul>
                     </li>
                 </ul>
+
             </div>
             <!-- /.navbar-collapse -->
         </nav>
@@ -114,7 +130,7 @@
                 </div>
                 <!-- /.row -->   
 
-                @yield('content')            
+                @yield('content')                
 
             </div>
             <!-- /.container-fluid -->
@@ -155,6 +171,46 @@
                     </button>
                 </div>
                 </form>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="modalError" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><strong> Error! </strong></h4>
+                </div>
+                <div class="modal-body">
+
+                    @if($errors->any())
+                    <div class="alert alert-danger">
+                        <div class="row">
+                            <div class="col-md-1">
+                                <strong>Error!</strong>                                
+                            </div>
+                            <div class="col-md-11">
+                                <ul id="listaDeErrores">
+                                    @foreach($errors->all() as $error)
+                                    <li>{{$error}}</li>
+                                    @endforeach        
+                                </ul>                                 
+                            </div>
+                        </div>
+
+
+                    </div>
+                    @endif
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">Aceptar</button>
+                </div>
+
             </div>
 
         </div>

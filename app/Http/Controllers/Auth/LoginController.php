@@ -53,11 +53,10 @@ class LoginController extends Controller
             } 
         }
 
-        if (Auth::attempt(['email' => $email , 'password' => $password], $remember)) {
-            // Authentication passed...
-            return redirect()->intended('/');
+        if (Auth::attempt(['email' => $email , 'password' => $password], $remember)) {            
+            return redirect()->back();
         }else{
-            echo "Fallo el logeo";
+            return redirect()->back()->withErrors(['Usuario o contraseña incorrectos']);
         }
 
 

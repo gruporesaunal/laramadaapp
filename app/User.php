@@ -9,14 +9,14 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Authenticatable
 {
     use Notifiable;
-    const CREATED_AT = 'created_date';
-    const UPDATED_AT = 'updated_date';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
+    protected $table='user';
+
     protected $fillable = [
         'name', 'email', 'password', 'role',
     ];

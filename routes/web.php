@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return redirect('/mapa');
+    return redirect('/home');
 });
 
 Auth::routes();
@@ -31,5 +31,16 @@ Route::get('/mapa', function () {
 Route::get('/test', function () {
     return view('test');
 });
+
+Route::get('/home', function () {
+    return view('home');
+});
+
+Route::get('/datos', function () {
+	if(Auth::check())
+    	return view('datos');
+    return redirect()->back();
+});
+
 
 
