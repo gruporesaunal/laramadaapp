@@ -61,7 +61,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="{{url('/logout')}}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                 </li>
@@ -145,7 +145,7 @@
                         <input  required type="password" class="form-control" name="pwd">
                       </div>
                       <div class="checkbox">
-                        <label><input type="checkbox" name="recordar"> Recordarme</label>
+                        <label><input type="checkbox" name="remember" > Recordarme</label>
                       </div>
                 </div>
                 <div class="modal-footer">
