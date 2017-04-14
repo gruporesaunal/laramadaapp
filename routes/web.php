@@ -12,13 +12,24 @@
 */
 
 Route::get('/', function () {
-    return view('main');
+    return redirect('/mapa');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+
 Route::get('/login', 'Auth\LoginController@login');
 
 Route::get('/logout', 'Auth\LoginController@logout');
+
+Route::get('/mapa', function () {
+    return view('mapa');
+});
+
+Route::get('/test', function () {
+    return view('test');
+});
+
+
