@@ -19,6 +19,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+
+Route::get('/login', 'Auth\LoginController@login');
+
+Route::get('/logout', 'Auth\LoginController@logout');
+
 Route::get('/mapa', function () {
     return view('mapa');
 });
@@ -26,4 +31,5 @@ Route::get('/mapa', function () {
 Route::get('/test', function () {
     return view('test');
 });
+
 
