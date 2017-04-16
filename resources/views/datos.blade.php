@@ -7,7 +7,7 @@
 @endsection
 
 @section('header')
-Datos de Contaminantes<small> Interfaz administrativa</small>
+Datos de Contaminantes <div class="hidden-md hidden-lg"> <small> Interfaz administrativa</small>
 @endsection
 
 @section('breadcrumb')

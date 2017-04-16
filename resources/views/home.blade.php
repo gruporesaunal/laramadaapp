@@ -7,7 +7,7 @@
 @endsection
 
 @section('header')
-La Ramada <small>Aplicación informativa</small>
+La Ramada <div class="hidden-md hidden-lg"></div><small>Aplicación informativa</small>
 @endsection
 
 @section('breadcrumb')

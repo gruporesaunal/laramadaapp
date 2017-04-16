@@ -1,0 +1,1 @@
+<iframe width="100%" height="60%" scrolling="no" frameborder="no" src="https://fusiontables.google.com/embedviz?q=select+col2+from+1plsthco6Sv7BSk1BicPmZ3V6qtZvHQ_NbYSlCS9l&amp;viz=MAP&amp;h=false&amp;lat=4.717019363797066&amp;lng=-74.17759681207275&amp;t=1&amp;z=13&amp;l=col2&amp;y=2&amp;tmplt=2&amp;hml=KML"></iframe>

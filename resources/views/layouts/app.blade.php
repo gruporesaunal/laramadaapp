@@ -114,7 +114,10 @@
 
                 <!-- Page Heading -->
                 <div class="row">
-                    <div class="col-lg-12">
+
+                    <div class="col-xs-12 hidden-md hidden-lg" style="margin: 5px"></div>
+
+                    <div class="col-lg-12 col-md-12">
                         <h1 class="page-header">
                             <!-- Dashboard <small>Statistics Overview</small> -->
                             @yield('header')
