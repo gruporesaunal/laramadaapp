@@ -39,13 +39,21 @@
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Aplicación informativa La Ramada</a>
+            <div class="row">
+                <div class="col-xs-10 col-md-12">
+                    <a class="navbar-brand" href="#">Aplicación informativa  de La Ramada</a>
+                </div>
+                <div class="col-xs-2">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                
+                </div>
+            </div>
+                
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -113,9 +121,7 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <div class="row">
-
-                    <div class="col-xs-12 hidden-md hidden-lg" style="margin: 5px"></div>
+                <div class="row">                    
 
                     <div class="col-lg-12 col-md-12">
                         <h1 class="page-header">
