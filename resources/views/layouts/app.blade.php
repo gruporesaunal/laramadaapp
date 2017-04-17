@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Santiago Carvajal y Alexis Ortiz">
+
+    <link rel="icon" type="image/gif" href="{{asset('img/unal.png')}}" />
     
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
@@ -25,7 +27,7 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
 
-    <title>Ramada - @yield('title')</title>
+    <title>Ramada App - @yield('title')</title>
 
     @section('head')
 
