@@ -4,6 +4,15 @@
 
 @section('head')
 
+<script type="text/javascript"
+    src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+<script src="{{asset('js/mapa.js')}}"></script>
+
+<script src="https://www.googleapis.com/fusiontables/v2/tables/1plsthco6Sv7BSk1BicPmZ3V6qtZvHQ_NbYSlCS9l/styles?callback=handler&key={{config('constants.maps_api_key')}}"></script>
+
+
+
 @endsection
 
 @section('header')
@@ -25,9 +34,7 @@ Mapa de la Ramada <div class="hidden-md hidden-lg"></div>  <small>Información d
     		<li class="dropdown">
 			    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Farmacológicos
 			    <span class="caret"></span></a>
-			    <ul class="dropdown-menu">
-			      <li><a data-toggle="pill" href="#mapa-acetaminofen">Acetaminofen</a></li>
-			      <li><a data-toggle="pill" href="#mapa-ciprofloxacin">Ciprofloxacin</a></li>
+			    <ul class="dropdown-menu" id="menuFarmacologicos">			      
 			    </ul>
 			</li>
 
@@ -35,9 +42,6 @@ Mapa de la Ramada <div class="hidden-md hidden-lg"></div>  <small>Información d
 			    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Orgánicos
 			    <span class="caret"></span></a>
 			    <ul class="dropdown-menu">
-			      <li><a href="#">Submenu 1-1</a></li>
-			      <li><a href="#">Submenu 1-2</a></li>
-			      <li><a href="#">Submenu 1-3</a></li> 
 			    </ul>
 			</li>
 
@@ -45,13 +49,19 @@ Mapa de la Ramada <div class="hidden-md hidden-lg"></div>  <small>Información d
 			    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Metales Pesados
 			    <span class="caret"></span></a>
 			    <ul class="dropdown-menu">
-			      <li><a href="#">Submenu 1-1</a></li>
-			      <li><a href="#">Submenu 1-2</a></li>
-			      <li><a href="#">Submenu 1-3</a></li> 
+			    </ul>
+			</li>
+
+			<li class="dropdown">
+			    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Microbiológicos
+			    <span class="caret"></span></a>
+			    <ul class="dropdown-menu">
 			    </ul>
 			</li>
 
 		 </ul>
+
+
     	</div>
 	    <div class="col-md-9">	   
 	    	<div class="tab-content">	
@@ -68,23 +78,20 @@ Mapa de la Ramada <div class="hidden-md hidden-lg"></div>  <small>Información d
 					</div>
 			    </div>	
 
-			    <div id="mapa-acetaminofen" class="tab-pane fade">
+			    <div id="panel-mapa" class="tab-pane fade">
 			      <div class="panel panel-default">
 					  <div class="panel-heading"><h3>Información <small>powered by Fusion Tables</small> </h3></div>
-					  <div class="panel-body">
-					  @include('mapas.acetaminofen')
+					  <div class="panel-body"> 
+					  	<div class="row">
+					  		<div class="col-md-12">
+					  			<div id="map-canvas"></div>
+					  		</div>
+					  	</div>
+					  
 					  </div>
 					</div>
 			    </div>
-
-			    <div id="mapa-ciprofloxacin" class="tab-pane fade">
-			      <div class="panel panel-default">
-					  <div class="panel-heading"><h3>Información <small>powered by Fusion Tables</small> </h3></div>
-					  <div class="panel-body">
-					  @include('mapas.ciprofloxacin')
-					  </div>
-					</div>
-			    </div>
+			    
 			    
 			  </div> 	
 	    	

@@ -29,11 +29,15 @@ Route::get('/mapa', function () {
 });
 
 Route::get('/test', function () {
-    return view('test');
+    return view('test.test');
 });
 
 Route::get('/test2', function () {
-    return view('test2');
+    return view('test.test2');
+});
+
+Route::get('/test3', function () {
+    return view('test.test3');
 });
 
 Route::get('/home', function () {

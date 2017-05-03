@@ -43,7 +43,9 @@
             <div class="navbar-header">
             <div class="row">
                 <div class="col-xs-10 col-md-12">
-                    <a class="navbar-brand" href="#">Aplicación informativa  de La Ramada</a>
+                    <a class="navbar-brand" href="#">
+                    <img src="{{asset('img/logo.png')}}" height="150%">
+                    </a>
                 </div>
                 <div class="col-xs-2">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
