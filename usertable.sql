@@ -11,7 +11,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- Schema mydb
 -- -----------------------------------------------------
 -- -----------------------------------------------------
--- Schema appramada
+-- Schema appramadausersusersuserusers
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
@@ -32,9 +32,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `appramada`.`user`
+-- Table `appramada`.`users`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `appramada`.`user` (
+CREATE TABLE IF NOT EXISTS `appramada`.`users` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(100) NOT NULL,
   `password` VARCHAR(100) NOT NULL,
@@ -50,19 +50,6 @@ AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = latin1;
 
 
--- -----------------------------------------------------
--- Table `appramada`.`users`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `appramada`.`users` (
-  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(255) COLLATE 'utf8mb4_unicode_ci' NOT NULL,
-  `email` VARCHAR(255) COLLATE 'utf8mb4_unicode_ci' NOT NULL,
-  `password` VARCHAR(255) COLLATE 'utf8mb4_unicode_ci' NOT NULL,
-  `remember_token` VARCHAR(100) COLLATE 'utf8mb4_unicode_ci' NULL DEFAULT NULL,
-  `created_at` TIMESTAMP NULL DEFAULT NULL,
-  `updated_at` TIMESTAMP NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
