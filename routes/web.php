@@ -38,13 +38,8 @@ Route::get('/home', function () {
     return view('home');
 });
 
-Route::get('/datos', function () {
-	if(Auth::check())
-    	return view('datos');
-    return redirect()->back();
-});
+Route::get('/datos', 'TypeController@verInterfazAdministrativa');
 
-Route::get('/t', 'PollutantController@index');
 
 
 
