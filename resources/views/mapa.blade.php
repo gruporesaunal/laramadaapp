@@ -15,42 +15,25 @@ Mapa de la Ramada <div class="hidden-md hidden-lg"></div>  <small>Información d
 @endsection
 
 @section('content')
+
     <div class="row">
     	<div class="col-md-3">
 
     	<h3>Contaminantes</h3>
-
-    	<ul class="nav nav-pills nav-stacked">
-    		
+     	<ul class="nav nav-pills nav-stacked">
+    		@foreach($types as $type)
     		<li class="dropdown">
-			    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Farmacológicos
+			    <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{$type->name}}
 			    <span class="caret"></span></a>
 			    <ul class="dropdown-menu">
-			      <li><a data-toggle="pill" href="#mapa-acetaminofen">Acetaminofen</a></li>
-			      <li><a data-toggle="pill" href="#mapa-ciprofloxacin">Ciprofloxacin</a></li>
+			      
+			      @foreach($type->pollutants as $pollutant)
+			       <li><a data-toggle="pill" href="#{{$pollutant->name}}">{{$pollutant->name}}</a></li>	   
+                   @endforeach 
 			    </ul>
 			</li>
-
-			<li class="dropdown">
-			    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Orgánicos
-			    <span class="caret"></span></a>
-			    <ul class="dropdown-menu">
-			      <li><a href="#">Submenu 1-1</a></li>
-			      <li><a href="#">Submenu 1-2</a></li>
-			      <li><a href="#">Submenu 1-3</a></li> 
-			    </ul>
-			</li>
-
-			<li class="dropdown">
-			    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Metales Pesados
-			    <span class="caret"></span></a>
-			    <ul class="dropdown-menu">
-			      <li><a href="#">Submenu 1-1</a></li>
-			      <li><a href="#">Submenu 1-2</a></li>
-			      <li><a href="#">Submenu 1-3</a></li> 
-			    </ul>
-			</li>
-
+    		
+			@endforeach
 		 </ul>
     	</div>
 	    <div class="col-md-9">	   
@@ -67,27 +50,31 @@ Mapa de la Ramada <div class="hidden-md hidden-lg"></div>  <small>Información d
 					  </div>
 					</div>
 			    </div>	
+			    @foreach($types as $type)
+			        @foreach($type->pollutants as $pollutant)
 
-			    <div id="mapa-acetaminofen" class="tab-pane fade">
-			      <div class="panel panel-default">
-					  <div class="panel-heading"><h3>Información <small>powered by Fusion Tables</small> </h3></div>
-					  <div class="panel-body">
-					  @include('mapas.acetaminofen')
-					  </div>
-					</div>
-			    </div>
-
-			    <div id="mapa-ciprofloxacin" class="tab-pane fade">
-			      <div class="panel panel-default">
-					  <div class="panel-heading"><h3>Información <small>powered by Fusion Tables</small> </h3></div>
-					  <div class="panel-body">
-					  @include('mapas.ciprofloxacin')
-					  </div>
-					</div>
-			    </div>
-			    
+			        <div id="{{$pollutant->name}}" class="tab-pane fade">
+			        	<div class="panel panel-default">
+			        		<div class="panel-heading"><h3>Información <small>powered by Fusion Tables</small> </h3></div>
+			        		<div class="panel-body">
+			        			{!!$pollutant->iframe!!}
+			        		</div>
+			        	</div>
+			        </div>
+			        
+			        @endforeach
+			    @endforeach  
 			  </div> 	
 	    	
 	    </div>
     </div>
+    <script type="text/javascript">
+    	var iframes = document.getElementsByTagName("iframe");
+
+    	for(var i = 0; i < iframes.length; i++){
+    		iframes[i].setAttribute("width", "100%");
+    		iframes[i].setAttribute("height", "60%");
+    	}
+
+    </script>
 @endsection

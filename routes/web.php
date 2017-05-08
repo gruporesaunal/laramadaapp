@@ -24,9 +24,7 @@ Route::get('/login', 'Auth\LoginController@login');
 
 Route::get('/logout', 'Auth\LoginController@logout');
 
-Route::get('/mapa', function () {
-    return view('mapa');
-});
+Route::get('/mapa', 'PollutantController@index');
 
 Route::get('/test', function () {
     return view('test');
@@ -45,6 +43,8 @@ Route::get('/datos', function () {
     	return view('datos');
     return redirect()->back();
 });
+
+Route::get('/t', 'PollutantController@index');
 
 
 
