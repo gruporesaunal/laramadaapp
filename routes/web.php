@@ -24,7 +24,7 @@ Route::get('/login', 'Auth\LoginController@login');
 
 Route::get('/logout', 'Auth\LoginController@logout');
 
-Route::get('/mapa', 'PollutantController@index');
+Route::get('/mapa', 'PollutantController@index')->name('routeName');
 
 Route::get('/test', function () {
     return view('test');
@@ -39,6 +39,8 @@ Route::get('/home', function () {
 });
 
 Route::get('/datos', 'TypeController@verInterfazAdministrativa');
+
+Route::post('/agregar-tipo', 'TypeController@addType')->name('agregar');
 
 
 

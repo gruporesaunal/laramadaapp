@@ -50,8 +50,12 @@ Mapa de la Ramada <div class="hidden-md hidden-lg"></div>  <small>Información d
 					  </div>
 					</div>
 			    </div>	
+
+
 			    @foreach($types as $type)
+			    
 			        @foreach($type->pollutants as $pollutant)
+			        
 
 			        <div id="{{$pollutant->name}}" class="tab-pane fade">
 			        	<div class="panel panel-default">
@@ -64,6 +68,7 @@ Mapa de la Ramada <div class="hidden-md hidden-lg"></div>  <small>Información d
 			        
 			        @endforeach
 			    @endforeach  
+
 			  </div> 	
 	    	
 	    </div>

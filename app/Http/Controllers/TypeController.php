@@ -11,13 +11,21 @@ class TypeController extends Controller
 	public function verInterfazAdministrativa()
 	{
 		if(!Auth::check())
-	    	return redirect()->back();
-	    
+	    	return redirect()->back();	    
 
 		$types= Type::All();
 
 		return view('datos',['types'=>$types]);
 
+	}
+
+	public function addType(Request $request)
+	{
+		$input=$request->input();
+		$newType= Type::FirstOrCreate(['name'=>$input['name']]);		
+		
+		return redirect()->back();
+		# code...
 	}
     //
 }

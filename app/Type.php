@@ -8,6 +8,9 @@ class Type extends Model
 {
     //
     public $timestamps = false;
+
+    protected $fillable=['name'];
+    
     public function pollutants(){
     	return $this->hasMany('App\Pollutant');
     }
