@@ -14,4 +14,8 @@ class Type extends Model
     public function pollutants(){
     	return $this->hasMany('App\Pollutant');
     }
+
+    public function purge(){
+    	$this->delete();
+    }
 }

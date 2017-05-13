@@ -25,7 +25,33 @@ class TypeController extends Controller
 		$newType= Type::FirstOrCreate(['name'=>$input['name']]);		
 		
 		return redirect()->back();
-		# code...
+		
+	}
+
+	public function deleteType(Request $request)
+	{
+		$input=$request->input();
+
+		$type= Type::find($input['typeId']);
+
+		$type->purge();
+		
+		return redirect()->back();
+
+	}
+
+	public function editType(Request $request)
+	{
+		$input=$request->input();
+		
+		$type= Type::find($input['typeId']);
+
+		$type->name=$input['name'];
+
+		$type->save();
+		
+		return redirect()->back();
+		
 	}
     //
 }

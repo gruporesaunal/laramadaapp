@@ -24,15 +24,12 @@ Route::get('/login', 'Auth\LoginController@login');
 
 Route::get('/logout', 'Auth\LoginController@logout');
 
-Route::get('/mapa', 'PollutantController@index')->name('routeName');
+Route::get('/mapa', 'PollutantController@mapa')->name('routeName');
 
 Route::get('/test', function () {
     return view('test');
 });
 
-Route::get('/test2', function () {
-    return view('test2');
-});
 
 Route::get('/home', function () {
     return view('home');
@@ -40,7 +37,13 @@ Route::get('/home', function () {
 
 Route::get('/datos', 'TypeController@verInterfazAdministrativa');
 
-Route::post('/agregar-tipo', 'TypeController@addType')->name('agregar');
+Route::post('/agregar-tipo', 'TypeController@addType')->name('agregar-tipo');
+
+Route::post('/eliminar-tipo', 'TypeController@deleteType')->name('eliminar-tipo');
+
+Route::post('/editar-tipo', 'TypeController@editType')->name('editar-tipo');
+
+Route::post('/add-pollutant', 'PollutantController@addPollutant')->name('add-pollutant');
 
 
 
