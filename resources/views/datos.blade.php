@@ -6,7 +6,7 @@
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
 <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.3/summernote.css" rel="stylesheet">
-<link href="{{asset('css/sb-admin.css')}}" rel="stylesheet">
+
 <link href="{{asset('css/jquery.dataTables.css')}}" rel="stylesheet">
 <link href="{{asset('css/buttons.dataTables.min.css')}}" rel="stylesheet">
 

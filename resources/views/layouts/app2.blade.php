@@ -12,7 +12,7 @@
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="{{asset('css/sb-admin-2.css')}}" rel="stylesheet">
+    <link href="{{asset('css/sb-admin.css')}}" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="{{asset('font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
@@ -38,35 +38,42 @@
     <div id="wrapper">
 
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <div >
-                    <a class="navbar-brand" href="{{url('/home')}}">
-                    <img src="{{asset('img/resa_color.png')}}" height="150%">
-                    </a>
-                    
+            <div class="row">
+                <div class="col-xs-10 col-md-12">
+                    <a class="navbar-brand" href="#">Aplicación informativa  de La Ramaaada</a>
                 </div>
+                <div class="col-xs-2">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
                 
+                </div>
+            </div>
                 
             </div>
-            <!-- /.navbar-header -->
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
 
-            <ul class="nav navbar-top-links navbar-right">
-                
-                
-                <!-- /.dropdown -->
-                 @if(Auth::check())
+                @if(Auth::check())
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ Auth::user()->name }} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        
-                        
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
                         <li>
                             <a href="{{url('/logout')}}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
@@ -75,35 +82,42 @@
                 @else
                 <li><a data-toggle="modal" data-target="#modalLogin"><i class="fa fa-sign-in"></i> Login </a></li>
                 @endif
-                <!-- /.dropdown -->
             </ul>
-            <!-- /.navbar-top-links -->
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                
+                <ul class="nav navbar-nav side-nav">
+                    <li  class="side-nav-item" id="side-nav-home">
+                        <a href="{{url('/home')}}"><i class="fa fa-fw fa-home"></i> Home</a>
+                    </li>
 
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
+                    <li class="side-nav-item"  id="side-nav-mapa">
+                        <a href="{{url('/mapa')}}"><i class="fa fa-fw fa-map-marker"></i> Mapa</a>
+                    </li>
 
-                        <li  id="side-nav-home">
-                            <a href="{{url('/home')}}"><i class="fa fa-fw fa-home"></i> Home</a>
-                        </li>
+                    @if(Auth::check())
+                    <li class="side-nav-item" id="side-nav-datos">
+                        <a href="{{url('/datos')}}"><i class="fa fa-fw fa-database"></i> Administrar Información</a>
+                    </li>
+                    @endif
+                   
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li class="side-nav-item" >
+                                <a href="#">Dropdown Item</a>
+                            </li>
+                            <li class="side-nav-item" >
+                                <a href="#">Dropdown Item</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
 
-                        <li   id="side-nav-mapa">
-                            <a href="{{url('/mapa')}}"><i class="fa fa-fw fa-map-marker"></i> Mapa</a>
-                        </li>
-
-                        @if(Auth::check())
-                        <li id="side-nav-datos">
-                            <a href="{{url('/datos')}}"><i class="fa fa-fw fa-database"></i> Administrar Información</a>
-                        </li>
-                        @endif
-                        
-                    </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
             </div>
-            <!-- /.navbar-static-side -->
+            <!-- /.navbar-collapse -->
         </nav>
-        
+
         <div id="page-wrapper">
 
             <div class="container-fluid">
