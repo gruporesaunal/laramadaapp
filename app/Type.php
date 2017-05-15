@@ -16,6 +16,12 @@ class Type extends Model
     }
 
     public function purge(){
+    	$pollutants=$this->pollutants;
+
+    	foreach ($pollutants as $key => $pollutant) {
+    		$pollutant->purge();
+    	}
+    	
     	$this->delete();
     }
 }

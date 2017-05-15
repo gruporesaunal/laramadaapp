@@ -45,6 +45,8 @@ Route::post('/editar-tipo', 'TypeController@editType')->name('editar-tipo');
 
 Route::post('/add-pollutant', 'PollutantController@addPollutant')->name('add-pollutant');
 
+Route::post('/delete-pollutant', 'PollutantController@deletePollutant')->name('delete-pollutant');
+
 
 
 

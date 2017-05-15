@@ -4,18 +4,24 @@
 
 @section('head')
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.3/summernote.css" rel="stylesheet">
+<link href="{{asset('css/sb-admin.css')}}" rel="stylesheet">
+<link href="{{asset('css/jquery.dataTables.css')}}" rel="stylesheet">
+<link href="{{asset('css/buttons.dataTables.min.css')}}" rel="stylesheet">
+
 <script src="{{asset('js/jquery.dataTables.js')}}"></script>
 <script src="{{asset('js/dataTables.bootstrap.js')}}"></script>
 <script src="{{asset('js/dataTables.responsive.min.js')}}"></script>
 <script src="{{asset('js/responsive.bootstrap.min.js')}}"></script>
 <script src="{{asset('js/dataTables.buttons.min.js')}}"></script>
-<script src="{{asset('js/private/datos.js')}}"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.3/summernote.js"></script>
 
-<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.3/summernote.css" rel="stylesheet">
-<link href="{{asset('css/sb-admin.css')}}" rel="stylesheet">
-<link href="{{asset('css/jquery.dataTables.css')}}" rel="stylesheet">
-<link href="{{asset('css/buttons.dataTables.min.css')}}" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+
+
+<script src="{{asset('js/private/datos.js')}}"></script>
 
 
 @endsection
@@ -85,7 +91,11 @@ Datos de Contaminantes <div class="hidden-md hidden-lg"> <small> Interfaz admini
 								            <td>{{$pollutant->name}}</td>
 								            <td>0</td>
 								            <td>
-								            	<button type="button" class="btn btn-default col-sm-12 col-md-12 col-lg-12 col-xl-12 " data-toggle="modal" data-target="#modalEditPollutant">Editar</button>
+								            	<div class="btn-group pull-right">
+												  	<button type="button" data-id="{{$pollutant->id}}"  data-nombre="{{$pollutant->name}}" class="btn btn-default  buttonEditPollutant" data-toggle="modal" data-target="#modalEditPollutant">Editar</button>
+								            		<button type="button" data-id="{{$pollutant->id}}"  data-nombre="{{$pollutant->name}}" class="btn btn-danger buttonDeletePollutant" data-toggle="modal" data-target="#modalDeletePollutant">Eliminar</button>
+												</div>
+								            	
 								            </td>
 								        </tr>
 										@endforeach									        
@@ -114,16 +124,17 @@ Datos de Contaminantes <div class="hidden-md hidden-lg"> <small> Interfaz admini
 <!-- ModalEditar -->
 @include('modals.modalEditType')
 
-
 <!-- ModalEliminar -->
 @include('modals.modalDeleteType')
-
 
 <!-- Modal Añadir contaminante -->
 @include('modals.modalAddPollutant')
 
-
 <!-- Modal Ver contaminante -->
 @include('modals.modalEditPollutant')
+
+<!-- Modal Editar contaminante -->
+@include('modals.modalDeletePollutant')
+
 
 @endsection
