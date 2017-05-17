@@ -2,8 +2,8 @@
   <div class="modal-dialog">
     <form method="post" action="{{route('add-pollutant')}}" id="form-add-pollutant">
     {{csrf_field()}}
-    <input type="hidden" name="typeId" id="inputIdAddPollutant">
-    <input type="hidden" name="mapas"  id="inputMapasAddPollutant" value="1">
+    <input type="hidden" name="typeId" id="inputIdTypeAddPollutant">
+    <input type="hidden" name="mapas"  id="inputNumberMapasAddPollutant" value="1">
 
       <!-- Modal content-->
       <div class="modal-content">
@@ -29,24 +29,24 @@
                   <div class="form-group col-md-3">
                     <div class="input-group">
                       <span class="input-group-addon" id="basic-addon1">Año</span>
-                      <input required type="text" class="date-year form-control" type="text" name="year[]" placeholder="Año">
+                      <input required type="text" class="date-year form-control yearInput" type="text" name="year[]" placeholder="Año">
                     </div>  
                   </div>
 
                   <div class="form-group col-md-9">    
                     <div class="input-group">
                       <span class="input-group-addon" id="basic-addon1"><b>iframe</b> </span>
-                      <input required type="text" class="form-control" type="text" name="iframe[]" placeholder="Código generado por Datatables">
+                      <input required type="text" class="form-control iframeInput" type="text" name="iframe[]" placeholder="Código generado por Datatables">
                     </div> 
                   </div>                
                 </div> 
               </div>              
               <div class="form-group col-md-3">
-                  <button type="button" data-div="mapa-inputs-add-pollutant" class="btn btn-primary btn-block buttonAddMap"><span class="glyphicon glyphicon glyphicon-plus"></span>
+                  <button type="button" data-div="mapa-inputs-add-pollutant" data-inputNumberMapas="inputNumberMapasAddPollutant" class="btn btn-primary btn-block buttonAddMap"><span class="glyphicon glyphicon glyphicon-plus"></span>
                   </button>
               </div>   
               <div class="form-group col-md-3">
-                  <button type="button" data-div="mapa-inputs-add-pollutant" class="btn btn-warning btn-block buttonDeleteMap"><span class="glyphicon glyphicon glyphicon-minus"></span>
+                  <button type="button" data-div="mapa-inputs-add-pollutant" data-inputNumberMapas="inputNumberMapasAddPollutant" class="btn btn-warning btn-block buttonDeleteMap"><span class="glyphicon glyphicon glyphicon-minus"></span>
                   </button>
               </div>      
             </div>
@@ -55,10 +55,10 @@
 
           <div class="form-group">
             <label for="descripcion">Descripción:</label>
-            <textarea class="form-control summernote" rows="5" id="descripcion"></textarea>          
+            <textarea class="form-control summernote" rows="5" id="summernoteDescriptionAddPollutant"></textarea>          
           </div>
 
-          <input type="hidden" name="descripcion" id="inputDespripcionPollutant">
+          <input type="hidden" name="descripcion" id="inputDespripcionAddPollutant">
 
         </div>
 

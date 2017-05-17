@@ -60,5 +60,44 @@ class PollutantController extends Controller
 		return redirect()->back();
     }
 
+    public function editPollutant(Request $request)
+    {
+        $input=$request->input();
+
+        $pollutant= Pollutant::find($input['pollutantId']);
+
+        $pollutant->name=$input['name'];
+        $pollutant->description=$input['descripcion'];
+
+        $iframes=$input['iframe'];
+        $years=$input['year'];
+
+        $pollutant->save();
+
+        $pollutant->yearMaps()->delete();
+
+        for ($i=0; $i < sizeof($years); $i++) { 
+            $yearMap = new YearMap;
+            $yearMap->year=$years[$i];
+            $yearMap->iframe=$iframes[$i];
+            $yearMap->pollutant_id=$pollutant->id;
+            $yearMap->save();
+        }
+
+        return redirect()->back();
+    }
+
+
+    public function retrievePollutant(Request $request)
+    {
+        $input=$request->input();
+
+        $pollutant= Pollutant::find($input['pollutantId']);  
+
+        $yearMaps= $pollutant->yearMaps;
+        
+        return response()->json(['pollutant'=>$pollutant,'yearMaps'=>$yearMaps]);
+    }
+
 
 }

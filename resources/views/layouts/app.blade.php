@@ -80,7 +80,7 @@
             <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
+                <div class="sidebar-nav navbar-collapse collapse" >
                     <ul class="nav" id="side-menu">
 
                         <li  id="side-nav-home">
@@ -137,81 +137,11 @@
 
     </div>
 
-    <div id="modalLogin" class="modal fade" role="dialog">
-        <div class="modal-dialog">
+@include('modals.modalLogin')
 
-            <!-- Modal content-->
-            <div class="modal-content">
-                <form method="post" action="/login">
-                {{csrf_field()}}
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title"><strong> Ingreso como Administrador </strong></h4>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="email">Correo Electrónico:</label>
-                        <input required type="email" class="form-control" id="email" placeholder="Correo Electrónico" name="email">
-                      </div>
-                      <div class="form-group">
-                        <label for="pwd">Contraseña:</label>
-                        <input  required type="password" class="form-control" name="pwd">
-                      </div>
-                      <div class="checkbox">
-                        <label><input type="checkbox" name="remember" > Recordarme</label>
-                      </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">
-                        <span class="glyphicon glyphicon-log-in"></span> Ingresar
-                    </button>
-                </div>
-                </form>
-            </div>
-
-        </div>
-    </div>
-
-    <div id="modalError" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title"><strong> Error! </strong></h4>
-                </div>
-                <div class="modal-body">
-
-                    @if($errors->any())
-                    <div class="alert alert-danger">
-                        <div class="row">
-                            <div class="col-md-1">
-                                <strong>Error!</strong>                                
-                            </div>
-                            <div class="col-md-11">
-                                <ul id="listaDeErrores">
-                                    @foreach($errors->all() as $error)
-                                    <li>{{$error}}</li>
-                                    @endforeach        
-                                </ul>                                 
-                            </div>
-                        </div>
+@include('modals.modalError')
 
 
-                    </div>
-                    @endif
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-warning" data-dismiss="modal">Aceptar</button>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
 
 </body>
 </html>

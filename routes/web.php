@@ -47,6 +47,11 @@ Route::post('/add-pollutant', 'PollutantController@addPollutant')->name('add-pol
 
 Route::post('/delete-pollutant', 'PollutantController@deletePollutant')->name('delete-pollutant');
 
+Route::post('/edit-pollutant', 'PollutantController@editPollutant')->name('edit-pollutant');
+
+Route::post('/retrieve-pollutant', 'PollutantController@retrievePollutant');
+
+
 
 
 
