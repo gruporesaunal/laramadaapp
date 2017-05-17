@@ -89,7 +89,7 @@ Datos de Contaminantes <div class="hidden-md hidden-lg"> <small> Interfaz admini
 								    	<tr>
 								            <td>{{$idPollutant+1}}</td>
 								            <td>{{$pollutant->name}}</td>
-								            <td>0</td>
+								            <td>{{sizeof($pollutant->yearMaps)}}</td>
 								            <td>
 								            	<div class="btn-group pull-right">
 												  	<button type="button" data-id="{{$pollutant->id}}"  data-nombre="{{$pollutant->name}}" class="btn btn-default  buttonEditPollutant" data-toggle="modal" data-target="#modalEditPollutant">Editar</button>
