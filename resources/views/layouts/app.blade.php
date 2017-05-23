@@ -96,7 +96,13 @@
                             <a href="{{url('/datos')}}"><i class="fa fa-fw fa-database"></i> Administrar Información</a>
                         </li>
                         @endif
-                        
+                        @if(Auth::check())
+                        @if(Auth::user()->role == "root")
+                        <li id="side-nav-datos">
+                            <a href="{{url('/register')}}"><i class="fa fa-fw fa-user"></i> Registrar nuevo administrador</a>
+                        </li>
+                        @endif
+                        @endif
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

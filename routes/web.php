@@ -35,6 +35,7 @@ Route::get('/home', function () {
     return view('home');
 });
 
+
 Route::get('/datos', 'TypeController@verInterfazAdministrativa');
 
 Route::post('/agregar-tipo', 'TypeController@addType')->name('agregar-tipo');

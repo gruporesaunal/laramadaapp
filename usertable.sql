@@ -66,7 +66,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS appramada.pollutants (
   id INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(45) NOT NULL UNIQUE,
-  description VARCHAR(200) DEFAULT NULL,
+  description VARCHAR(5000) DEFAULT NULL,
   type_id INT NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (type_id) REFERENCES appramada.types(id)
