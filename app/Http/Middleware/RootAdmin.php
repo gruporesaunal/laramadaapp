@@ -15,13 +15,13 @@ class RootAdmin
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::check()){
+        /*if(Auth::check()){
             if(Auth::user()->role == "root" ){
                 return $next($request);
             }
         }
 
-        return redirect()->back();
+        return redirect()->back();*/
         
     }
 }
