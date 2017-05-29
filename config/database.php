@@ -1,5 +1,10 @@
 <?php
+$url = parse_url(getenv("DATABASE_URL"));
 
+$host = $url["host"];
+$username = $url["user"];
+$password = $url["pass"];
+$database = substr($url["path"], 1);
 return [
 
     /*
@@ -41,11 +46,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', $host),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'localhost'),
-            'username' => env('DB_USERNAME', 'root'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE', $database),
+            'username' => env('DB_USERNAME', $username),
+            'password' => env('DB_PASSWORD', $password),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
@@ -56,11 +61,11 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => env('DB_HOST', 'ec2-107-21-248-129.compute-1.amazonaws.com'),
+            'host' => env('DB_HOST', $host),
             'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'd7t4scmhuifhoe'),
-            'username' => env('DB_USERNAME', 'mbgatwjoraducy'),
-            'password' => env('DB_PASSWORD', 'f465308931981827b6a1cb5c6419b9ec816bee64e06d94bf4e04bdfe516882db'),
+            'database' => env('DB_DATABASE', $database),
+            'username' => env('DB_USERNAME', $username),
+            'password' => env('DB_PASSWORD', $password),
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
