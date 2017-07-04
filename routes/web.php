@@ -25,6 +25,7 @@ Route::get('/login', 'Auth\LoginController@login');
 Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('/mapa', 'PollutantController@mapa')->name('routeName');
+Route::get('/mapa/{pid}', 'PollutantController@showPollutant');
 
 Route::get('/test', function () {
     return view('test');

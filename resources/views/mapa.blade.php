@@ -28,7 +28,7 @@ Mapa de la Ramada <div class="hidden-md hidden-lg"></div>  <small>Información d
 			    <ul class="dropdown-menu">
 			      
 			      @foreach($type->pollutants as $pollutant)
-			       <li><a data-toggle="pill" href="#poll{{$pollutant->id}}">{{$pollutant->name}}</a></li>	   
+			       <li><a href="/mapa/{{$pollutant->id}}">{{$pollutant->name}}</a></li>	   
                    @endforeach 
 			    </ul>
 			</li>
@@ -37,7 +37,8 @@ Mapa de la Ramada <div class="hidden-md hidden-lg"></div>  <small>Información d
 		 </ul>
     	</div>
 	    <div class="col-md-9">	   
-	    	<div class="tab-content">		 
+	    	<div class="tab-content">
+	    	    @if ($selectedPollutant==null)		 
 	    		<div id="mapa-home" class="tab-pane fade in active">
 			      <div class="panel panel-default">
 					  <div class="panel-heading"><h3>Información <small>powered by Fusion Tables</small> </h3></div>
@@ -49,41 +50,37 @@ Mapa de la Ramada <div class="hidden-md hidden-lg"></div>  <small>Información d
 					  </div>
 					</div>
 			    </div>	
+			    @endif
 
-
-			    @foreach($types as $type)
-			    
-			        @foreach($type->pollutants as $pollutant)
-			        
-
-			        <div id="poll{{$pollutant->id}}" class="tab-pane fade">
+			    @if ($selectedPollutant!=null)
+			        <div id="poll{{$selectedPollutant->id}}" class="tab-pane fade in active">
 			        	<ul class="nav nav-tabs">
-			        		<li class="active"><a data-toggle="tab" href="#{{$pollutant->id}}maps">Mapas {{$pollutant->name}}</a></li>
-			        		<li><a data-toggle="tab" href="#{{$pollutant->id}}inform">Información del contaminante</a></li>
+			        		<li class="active"><a data-toggle="tab" href="#{{$selectedPollutant->id}}maps">Mapas {{$selectedPollutant->name}}</a></li>
+			        		<li><a data-toggle="tab" href="#{{$selectedPollutant->id}}inform">Información del contaminante</a></li>
 			        	</ul>
 			        	<div class="tab-content">
-			        		<div id="{{$pollutant->id}}maps" class="tab-pane fade in active">
+			        		<div id="{{$selectedPollutant->id}}maps" class="tab-pane fade in active">
 			        			<div class="panel panel-default">
 			        				<div class="panel-body">
 			        					<ul class="nav nav-pills nav-justified">
-			        						@foreach($pollutant->yearMaps as $year)
+			        						@foreach($selectedPollutant->yearMaps as $year)
 			        						@if ($loop->first)
-			        						<li class="active"><a href="#y{{$pollutant->id}}{{$year->year}}" data-toggle="tab">{{$year->year}}</a></li>
+			        						<li class="active"><a href="#y{{$selectedPollutant->id}}{{$year->year}}" data-toggle="tab">{{$year->year}}</a></li>
 			        						@else
-			        					    <li><a href="#y{{$pollutant->id}}{{$year->year}}" data-toggle="tab" >{{$year->year}}</a></li>
+			        					    <li><a href="#y{{$selectedPollutant->id}}{{$year->year}}" data-toggle="tab" >{{$year->year}}</a></li>
 			        					    @endif
 			        					    @endforeach
 			        					    
 			        						
 			        					</ul>	
 			        					<div class="tab-content">
-			        					    @foreach($pollutant->yearMaps as $year)
+			        					    @foreach($selectedPollutant->yearMaps as $year)
 			        						@if ($loop->first)
-			        						<div id="y{{$pollutant->id}}{{$year->year}}" class="tab-pane fade in active">
+			        						<div id="y{{$selectedPollutant->id}}{{$year->year}}" class="tab-pane fade in active">
 			        						{!!$year->iframe!!}	
 			        						</div>
 			        						@else
-			        					    <div id="y{{$pollutant->id}}{{$year->year}}" class="tab-pane fade">
+			        					    <div id="y{{$selectedPollutant->id}}{{$year->year}}" class="tab-pane fade">
 			        						{!!$year->iframe!!}	
 			        						</div>
 			        					    @endif
@@ -95,11 +92,11 @@ Mapa de la Ramada <div class="hidden-md hidden-lg"></div>  <small>Información d
 			        				</div>
 			        			</div>
 			        		</div>
-			        		<div id="{{$pollutant->id}}inform" class="tab-pane fade in">
+			        		<div id="{{$selectedPollutant->id}}inform" class="tab-pane fade in">
 			        			<div class="panel panel-default">
 			        				<div class="panel-body">
-			        				<h2>{{$pollutant->name}}</h2>
-			        					{!!$pollutant->description!!}
+			        				<h2>{{$selectedPollutant->name}}</h2>
+			        					{!!$selectedPollutant->description!!}
 			        				</div>
 			        			</div>
 			        		</div>
@@ -107,10 +104,10 @@ Mapa de la Ramada <div class="hidden-md hidden-lg"></div>  <small>Información d
     
 			        	
 			        </div>
-			        
-			        @endforeach
-			    @endforeach  
+			    @endif
 
+
+			   
 			  </div> 	
 	    	
 	    </div>

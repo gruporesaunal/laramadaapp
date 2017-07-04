@@ -12,7 +12,12 @@ class PollutantController extends Controller
     //
     public function mapa(){
  
-    	return view('mapa',[ 'types'=>Type::All()]);
+    	return view('mapa',[ 'types'=>Type::All(), 'selectedPollutant'=>null]);
+    }
+
+   public function showPollutant($pid){
+       // dd(Pollutant::where('id', $pid)->first());
+        return view('mapa',['types'=>Type::All(), 'selectedPollutant'=>Pollutant::where('id', $pid)->first()]);
     }
 
     public function addPollutant(Request $request)
